@@ -1,6 +1,7 @@
 import numpy as np
 
 n = int(input("Nhap n: "))
+
 a = np.zeros((n, n))
 b = np.zeros((n))
 
