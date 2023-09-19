@@ -13,3 +13,4 @@ for i in range(n):
 x = np.linalg.solve(a, b)
 
 print(x)
+tungcmmoott
