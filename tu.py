@@ -4,6 +4,7 @@ n = int(input("Nhap n: "))
 
 a = np.zeros((n, n))
 b = np.zeros((n))
+
 for i in range(n):
     for j in range(n):
         a[i, j] = float(input(f"a{i + 1},{j + 1}: "))
