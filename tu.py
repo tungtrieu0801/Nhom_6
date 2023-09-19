@@ -17,3 +17,5 @@ x = np.linalg.solve(a, b)
 print(x)
 
 tung commit
+#truong
+
