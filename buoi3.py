@@ -15,8 +15,9 @@ def xem_ket_qua():
     ket_qua.config(text=tong_sinh_vien)
     lop = lop_dropdown.get()
     diem = diem_dropdown.get()
-    if lop and diem:
-        ket_qua.config(text=str(df[df['Mã lớp'] == lop][diem].values[0]))
+    filtered_df = df[df['Mã lớp'] == lop][diem]
+    if not filtered_df.empty:
+        ket_qua.config(text=str(filtered_df.values[0]))
     else:
         ket_qua.config(text="Chưa có dữ liệu cho lựa chọn này")
 
@@ -24,9 +25,10 @@ def xem_ket_qua():
 def tinh_trung_binh_cong():
     lop = lop_dropdown.get()
     diem = diem_lop_dropdown.get()
-    
-    if lop and diem:
-        diem_trung_binh = df[df['Mã lớp'] == lop][diem].mean()
+
+    filtered_df = df[df['Mã lớp'] == lop][diem]
+    if not filtered_df.empty:
+        diem_trung_binh = filtered_df.mean()
         ket_qua.config(text=f"Số {diem} của lớp {lop}: {diem_trung_binh:}")
     else:
         ket_qua.config(text="Chưa có dữ liệu cho lựa chọn này")
@@ -42,6 +44,7 @@ tong_sinh_vien.pack()
 
 # Dropdown box cho lựa chọn lớp
 lop_options = df['Mã lớp'].unique()
+lop_options = [option.replace("'", "") for option in lop_options]
 lop_dropdown = ttk.Combobox(root, values=lop_options)
 lop_dropdown.set(lop_options[0])  # Thiết lập giá trị mặc định
 lop_dropdown.pack()
@@ -53,18 +56,18 @@ diem_dropdown.set(diem_options[0])  # Thiết lập giá trị mặc định
 diem_dropdown.pack()
 
 # Dropdown box cho lựa chọn loại điểm của lớp
-# diem_lop_options = ["Loại A+", "Loại A", "Loại B+", "Loại B", "Loại C+", "Loại C"]
-# diem_lop_dropdown = ttk.Combobox(root, values=diem_lop_options)
-# diem_lop_dropdown.set(diem_lop_options[0])  # Thiết lập giá trị mặc định
-# diem_lop_dropdown.pack()
+diem_lop_options = ["Loại A+", "Loại A", "Loại B+", "Loại B", "Loại C+", "Loại C"]
+diem_lop_dropdown = ttk.Combobox(root, values=diem_lop_options)
+diem_lop_dropdown.set(diem_lop_options[0])  # Thiết lập giá trị mặc định
+diem_lop_dropdown.pack()
 
 # Tạo nút Xem kết quả
 xem_ket_qua_button = tk.Button(root, text="Xem kết quả", command=xem_ket_qua)
 xem_ket_qua_button.pack()
 
 # Tạo nút Tính trung bình cộng
-# tinh_tb_button = tk.Button(root, text="Chi tiết từng loại điểm ", command=tinh_trung_binh_cong)
-# tinh_tb_button.pack()
+tinh_tb_button = tk.Button(root, text="Chi tiết từng loại điểm ", command=tinh_trung_binh_cong)
+tinh_tb_button.pack()
 
 # Tạo Text View để hiển thị kết quả
 ket_qua = tk.Label(root, text="", padx=10, pady=10)
