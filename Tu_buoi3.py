@@ -78,3 +78,4 @@ tong_sinh_vien["text"] = "Tổng số sinh viên tham gia môn học: " + str(np
 
 # Bắt đầu vòng lặp chạy ứng dụng
 root.mainloop()
++tien commit
