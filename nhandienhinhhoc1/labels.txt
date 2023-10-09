@@ -1,0 +1,5 @@
+0 Hinh chu nhat
+1 Hinh tam giac
+2 Hinh thoi
+3 Hinh tron
+4 Hinh vuong
