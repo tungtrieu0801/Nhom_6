@@ -2,7 +2,7 @@ import pandas as pd
 from numpy import array
 import matplotlib.pyplot as plt
 import numpy as np
-
+import ttkthemes
 df = pd.read_csv('../diemPython.csv', index_col=0, header=0)
 in_data = array(df.iloc[:, :])
 arr_sv = in_data[:, 1]

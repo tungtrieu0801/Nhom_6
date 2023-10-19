@@ -33,9 +33,9 @@ def tinh_trung_binh_cong():
     else:
         ket_qua.config(text="Chưa có dữ liệu cho lựa chọn này")
 
-# Tạo cửa sổ tkinter
+# Tạo cua so
 root = tk.Tk()
-root.geometry("400x400")
+root.geometry("600x600")
 root.title("Ứng dụng Dropdown Box")
 
 # Hiển thị lựa chọn "Xem tổng số sinh viên tham gia môn học"
@@ -49,27 +49,23 @@ lop_dropdown = ttk.Combobox(root, values=lop_options)
 lop_dropdown.set(lop_options[0])  # Thiết lập giá trị mặc định
 lop_dropdown.pack()
 
-# Dropdown box cho lựa chọn điểm
 diem_options = ["Loại A+", "Loại A", "Loại B+", "Loại B", "Loại C+", "Loại C"]
 diem_dropdown = ttk.Combobox(root, values=diem_options)
 diem_dropdown.set(diem_options[0])  # Thiết lập giá trị mặc định
 diem_dropdown.pack()
 
-# Dropdown box cho lựa chọn loại điểm của lớp
 diem_lop_options = ["Loại A+", "Loại A", "Loại B+", "Loại B", "Loại C+", "Loại C"]
 diem_lop_dropdown = ttk.Combobox(root, values=diem_lop_options)
 diem_lop_dropdown.set(diem_lop_options[0])  # Thiết lập giá trị mặc định
 diem_lop_dropdown.pack()
 
-# Tạo nút Xem kết quả
 xem_ket_qua_button = tk.Button(root, text="Xem kết quả", command=xem_ket_qua)
 xem_ket_qua_button.pack()
 
-# Tạo nút Tính trung bình cộng
+
 tinh_tb_button = tk.Button(root, text="Chi tiết từng loại điểm ", command=tinh_trung_binh_cong)
 tinh_tb_button.pack()
 
-# Tạo Text View để hiển thị kết quả
 ket_qua = tk.Label(root, text="", padx=10, pady=10)
 ket_qua.pack()
 

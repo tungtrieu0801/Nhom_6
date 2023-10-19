@@ -16,6 +16,3 @@ if det==0:
 x = np.linalg.solve(a, b)
 print(x)
 
-tung commit
-truong commit
-tien commit
