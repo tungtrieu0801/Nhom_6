@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import tkinter as tk
 import matplotlib.pyplot as plt
 
 # Hàm tính cost
@@ -84,3 +85,4 @@ plt.ylabel('y')
 plt.title('Relationship between X and y')
 plt.legend()
 plt.show()
+#tung_commit

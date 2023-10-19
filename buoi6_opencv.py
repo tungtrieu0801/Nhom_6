@@ -1,7 +1,7 @@
 import cv2
 import tkinter as tk
 from tkinter import ttk
-
+import customertkinter
 #xoay anh
 def rotate_image():
     global original_image
@@ -75,3 +75,4 @@ scale_factor = 1.0
 
 root.mainloop()
 cv2.destroyAllWindows()
+#tung commit
