@@ -10,10 +10,8 @@ def rotate_image():
     original_image = cv2.warpAffine(original_image, matrix, (original_image.shape[1], original_image.shape[0]))
     update_imagesxoay()
 def update_imagesxoay():
-    cv2.imshow('anh xoay', original_image)
+    cv2.imshow('anh goc', original_image)
     cv2.waitKey(1)
-
-
 #zoom
 def zoom_in():
     global scale_factor
@@ -27,23 +25,23 @@ def zoom_out():
 
 def update_images():
     # Tạo ảnh co dãn
-    zoomed_img = cv2.resize(img, None, fx=scale_factor, fy=scale_factor, interpolation=cv2.INTER_LINEAR)
+    zoomed_img = cv2.resize(original_image, None, fx=scale_factor, fy=scale_factor, interpolation=cv2.INTER_LINEAR)
     # Hiển thị ảnh co dãn
-    cv2.imshow('anh zoom', zoomed_img)
+    cv2.imshow('anh goc', zoomed_img)
 def chuan_hoa_anh():
-    global img
-    final = cv2.normalize(img, None, 0, 255, cv2.NORM_MINMAX)
-    cv2.imshow("anh chuan hoa",final)
+    global original_image
+    final = cv2.normalize(original_image, None, 0, 255, cv2.NORM_MINMAX)
+    cv2.imshow("anh goc",final)
 def bien_anh():
-    global img
-    img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    global original_image
+    img_rgb = cv2.cvtColor(original_image, cv2.COLOR_BGR2RGB)
     edges=cv2.Canny(image=img_rgb,threshold1=0,threshold2=200)
-    cv2.imshow("bien anh",edges)
+    cv2.imshow("anh goc",edges)
 # Đọc ảnh
 original_image = cv2.imread('anhmeo.jpg')
-img = cv2.imread('anhmeo.jpg')
+
 # Hiển thị ảnh gốc
-cv2.imshow('anh goc', img)
+cv2.imshow('anh goc', original_image)
 # Tạo cửa sổ tkinter
 root = tk.Tk()
 root.title("Chức năng với ảnh")
