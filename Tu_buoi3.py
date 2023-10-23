@@ -64,7 +64,6 @@ diem_lop_dropdown.pack()
 xem_ket_qua_button = tk.Button(root, text="Xem kết quả", command=xem_ket_qua)
 xem_ket_qua_button.pack()
 
-# Tạo nút Tính trung bình cộng
 tinh_tb_button = tk.Button(root, text="Chi tiết từng loại điểm ", command=tinh_trung_binh_cong)
 tinh_tb_button.pack()
 
