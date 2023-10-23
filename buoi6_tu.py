@@ -66,3 +66,4 @@ class ImageProcessor:
 if __name__ == "__main__":
     image_path = "anh.png"  # Thay đổi đường dẫn đến ảnh của bạn
     ImageProcessor(image_path)
+# Tu_commit
