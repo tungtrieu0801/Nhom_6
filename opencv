@@ -6,12 +6,30 @@ def rotate_image():
     global original_image
     angle = float(angle_entry.get())  # Lấy góc quay từ hộp văn bản
     matrix = cv2.getRotationMatrix2D((original_image.shape[1] / 2, original_image.shape[0] / 2), angle, 1)
-    original_image = cv2.warpAffine(original_image, matrix, (original_image.shape[1], original_image.shape[0))
+    original_image = cv2.warpAffine(original_image, matrix, (original_image.shape[1], original_image.shape[0]))
     update_image()
 
 # Hiển thị ảnh
 def update_image():
     cv2.imshow('ảnh gốc', original_image)
+
+# Chuyển đổi ảnh sang ảnh grayscale
+def convert_to_grayscale():
+    global original_image
+    grayscale_image = cv2.cvtColor(original_image, cv2.COLOR_BGR2GRAY)
+    cv2.imshow("ảnh gốc", grayscale_image)
+
+# Chuyển đổi ảnh sang ảnh đảo ngược màu
+def invert_colors():
+    global original_image
+    inverted_image = cv2.bitwise_not(original_image)
+    cv2.imshow("ảnh gốc", inverted_image)
+
+# Chuyển đổi ảnh sang ảnh màu tự nhiên
+def restore_colors():
+    global original_image
+    restored_image = cv2.cvtColor(original_image, cv2.COLOR_BGR2RGB)
+    cv2.imshow("ảnh gốc", restored_image)
 
 # Zoom in
 def zoom_in():
@@ -57,6 +75,18 @@ angle_entry.pack()
 # Tạo nút để thực hiện phép quay
 rotate_button = tk.Button(root, text="Quay ảnh", command=rotate_image)
 rotate_button.pack()
+
+# Tạo nút chuyển đổi sang ảnh grayscale
+grayscale_button = tk.Button(root, text="Grayscale", command=convert_to_grayscale)
+grayscale_button.pack()
+
+# Tạo nút chuyển đổi sang ảnh đảo ngược màu
+invert_button = tk.Button(root, text="Invert Colors", command=invert_colors)
+invert_button.pack()
+
+# Tạo nút chuyển đổi sang ảnh màu tự nhiên
+restore_button = tk.Button(root, text="Restore Colors", command=restore_colors)
+restore_button.pack()
 
 # Tạo nút zoom in
 zoom_in_button = tk.Button(root, text="Zoom In", command=zoom_in)
