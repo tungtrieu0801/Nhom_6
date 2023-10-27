@@ -78,7 +78,6 @@ identity_button.pack(pady=5)
 _3x3_button = tk.Button(window, text="3x3", command=apply_3x3_threshold)
 _3x3_button.pack(pady=5)
 
-//tung làm phần này nè
 # Tạo nút áp dụng ngưỡng 5x5
 _5x5_button = tk.Button(window, text="5x5", command=apply_5x5_threshold)
 _5x5_button.pack(pady=5)
